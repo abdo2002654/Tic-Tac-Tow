@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "adlam";
+  src: url("./ADLaMDisplay-Regular.ttf");
+}
+@font-face {
+  font-family: "bungee";
+  src: url("./Bungee-Regular.ttf");
+}
+@font-face {
+  font-family: "poiret";
+  src: url("./PoiretOne-Regular.ttf");
+}
+@font-face {
+  font-family: "comfortaa";
+  src: url("./Comfortaa\ Regular\ 400.ttf");
+}
+.text-comfortaa {
+  font-family: comfortaa !important;
+}
+.text-bungee {
+  font-family: bungee !important;
+}
+.text-poiret {
+  font-family: poiret !important;
+}
+.text-adlam {
+  font-family: adlam !important;
+}

@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+}
+:root {
+  --bs-light: #f3f4f6;
+  --bs-dark: #374151;
+
+  --bs-light-red: #fecaca;
+  --bs-base-red: #ef4444;
+  --bs-dark-red: #991b1b;
+
+  --bs-light-blue: #bfdbfe;
+  --bs-base-blue: #3b82f6;
+  --bs-dark-blue: #1e40af;
+
+  --bs-light-yellow: #fde68a;
+  --bs-base-yellow: #fbbf24;
+  --bs-dark-yellow: #d97706;
+
+  --bs-light-green: #a7f3d0;
+  --bs-base-green: #10b981;
+  --bs-dark-green: #047857;
+}
+@font-face {
+  font-family: comfortaa;
+  src: url("../fonts/Comfortaa\ Regular\ 400.ttf");
+}
+@font-face {
+  font-family: adlam;
+  src: url("../fonts/ADLaMDisplay-Regular.ttf");
+}
+body {
+  background: rgb(0, 37, 37) !important;
+  position: relative;
+}
+.game {
+  background: #ffffff18;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 20;
+  backdrop-filter: blur(5px);
+}
+.game .header {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #dddddd73;
+  padding: 20px 0;
+}
+.game .header button{
+  background: #ffffff1a;
+  color: #ddd;
+  padding: 2px 20px;
+  font-family: adlam;
+  border: none;
+  box-shadow: 2px 2px 3px 0 #13131375;
+  border-radius: 10px;
+}
+.game .header button.restart {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.game .header button.turn {
+  font-size: 16px;
+  padding: 10px 20px;
+  font-weight: 200;
+  font-family: adlam;
+}
+.game .header button.turn .icon {
+  font-size: 16px;
+  width: 20px;
+}
+.game .body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  margin: 20px 0;
+}
+.game .body .square{
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  border-radius: 10px;
+  background: #ffffff17;
+  box-shadow: 0 5px 0 0 #0f0f0f38;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+.game .body .square.winner {
+  border: 1px solid var(--bs-light-green);
+} 
+.game .body .x-wins,
+.game .body .o-wins,
+.game .body .draws{
+  height: 50px;
+  width: 80px;
+  margin: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #333;
+  font-size: 22px;
+  font-weight: 900;
+  font-family: adlam;
+}
