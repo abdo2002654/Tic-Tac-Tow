@@ -7,7 +7,9 @@ let draws = document.querySelector(".draws");
 let turn = "x";
 let game = "on";
 
-
+if(window.sessionStorage.oWins !== undefined) oWins.innerHTML = window.sessionStorage.oWins;
+if(window.sessionStorage.xWins !== undefined) xWins.innerHTML = window.sessionStorage.xWins;
+if(window.sessionStorage.draws !== undefined) draws.innerHTML = window.sessionStorage.draws;
 
 squares.forEach(square => {
   square.onclick = () => {
@@ -62,18 +64,21 @@ let checkWin = () => {
 let winner = (winner, array) => {
   if(winner === "x") {
     xWins.innerHTML = Number(xWins.innerHTML) + 1;
+    window.sessionStorage.setItem("xWins", xWins.innerHTML);
     squares[array[0]].classList.add("winner");
     squares[array[1]].classList.add("winner");
     squares[array[2]].classList.add("winner");
   }
   if(winner === "o") {
     oWins.innerHTML = Number(oWins.innerHTML) + 1;
+    window.sessionStorage.setItem("oWins", oWins.innerHTML);
     squares[array[0]].classList.add("winner");
     squares[array[1]].classList.add("winner");
     squares[array[2]].classList.add("winner");
   }
   if(winner == "none") {
     draws.innerHTML = Number(draws.innerHTML) + 1;
+    window.sessionStorage.setItem("draws", draws.innerHTML);
   }
   game = 'off';
 }
