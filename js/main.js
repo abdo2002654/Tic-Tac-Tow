@@ -11,7 +11,7 @@ let game = "on";
 
 squares.forEach(square => {
   square.onclick = () => {
-    if(game == "on") {
+    if(game === "on") {
 
       if(square.innerHTML === '') {
         if(turn === "y") {
