@@ -6,18 +6,20 @@ let playButton = document.querySelector(".play");
 // squares
 let squares = document.querySelectorAll(".square");
 let turn = 'x';
-squares.forEach(square => {
-  square.onclick = () => {
-    if(square.innerHTML === ""){const icon = document.createElement("i");
-    if(turn === "x") {
-      icon.className = "fa fa-x x-icon";
-      turnButton.innerHTML = '<i class="fa fa-o o-icon"></i>'
-      turn = "o";
-    }
-    square.appendChild(icon);
-    playComputer();}
-  }
-})
+
+// functions
+function handleSquareCLick (square) {
+  if(square.innerHTML !== "" || turn !== "x") return;
+  const icon = document.createElement("i");
+  icon.className = "fa fa-x x-icon";
+  turnButton.innerHTML = '<i class="fa fa-o o-icon"></i>'
+  turn = "o";
+  square.appendChild(icon);
+  playComputer();
+}
+
+squares.forEach(square =>  square.addEventListener("click", () => handleSquareCLick(square)));
+
 
 function playComputer () { // computer turn
   setTimeout(() => {
@@ -32,4 +34,14 @@ function playComputer () { // computer turn
       }      
     }
   }, 500);
+}
+
+let squaresWinCombinations = [
+  [1, 2, 3], [4, 5, 6], [7, 8, 9],
+  [1, 4, 7], [2, 5, 8], [3, 6, 9],
+  [1, 5, 9], [3, 5, 7],
+];
+
+for (let i of squaresWinCombinations) {
+  
 }

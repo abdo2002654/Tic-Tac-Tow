@@ -126,3 +126,6 @@ body {
 .app .bottomBar .owins {
   background: var(--bs-dark-yellow);
 }
+.test {
+  background: red !important;
+}
