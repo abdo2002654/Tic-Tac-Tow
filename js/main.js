@@ -19,6 +19,16 @@ let mode = "multiplayer";
 let alertMessage = document.querySelector(".alert");
 
 // functions
+
+if(window.sessionStorage.draws !== undefined) {
+  xwins = Number(window.sessionStorage.getItem("xWins"));
+  xwinsButton.innerHTML = window.sessionStorage.getItem("xWins");
+  owins = Number(window.sessionStorage.getItem("oWins"));
+  owinsButton.innerHTML = window.sessionStorage.getItem("oWins");
+  draws = Number(window.sessionStorage.getItem("draws"));
+  drawsButton.innerHTML = window.sessionStorage.getItem("draws");
+}
+
 function handleSquareCLick (square) {
   if (mode == "engine") {
     if(square.innerHTML !== "" || turn !== "x" || !playing) return;
@@ -76,17 +86,19 @@ function handleSquareCLick (square) {
 squares.forEach(square =>  square.addEventListener("click", () => handleSquareCLick(square)));
 
 
-function playComputer () { // computer turn
-  let o = checkOMove();
-  if(squares[o].innerHTML !== "") return; 
-  const icon = document.createElement("i");
-  icon.className = "fa fa-o o-icon";  
-  turn="x";
-  turnButton.innerHTML = "<i class='fa fa-x x-icon'></i>";
-  oSquares.push(Number(squares[o].dataset.number));
-  squares[o].appendChild(icon);
-  squares[o].classList.add("o");
-  if(checkWinner() !== false) playing = false;
+function playComputer () {
+  setTimeout(() => {
+    let o = checkOMove();
+    if(squares[o].innerHTML !== "") return; 
+    const icon = document.createElement("i");
+    icon.className = "fa fa-o o-icon";  
+    turn="x";
+    turnButton.innerHTML = "<i class='fa fa-x x-icon'></i>";
+    oSquares.push(Number(squares[o].dataset.number));
+    squares[o].appendChild(icon);
+    squares[o].classList.add("o");
+    if(checkWinner() !== false) playing = false;
+  }, 500);
 }
 
 function checkOMove () {
@@ -162,21 +174,19 @@ function checkWinner () {
       squares[comb[0] - 1].classList.add("won");
       squares[comb[1] - 1].classList.add("won");
       squares[comb[2] - 1].classList.add("won");
-      xwins+=1;
-      xwinsButton.innerHTML = xwins;
       alertMessage.innerHTML = "x won";
       alertMessage.classList.add("on");
+      setX();
       playing = false;
       return "x";
     } else if(squares[comb[0] - 1].classList.contains("o") && squares[comb[1] - 1 ].classList.contains("o") && squares[comb[2] - 1].classList.contains("o")) {
       squares[comb[0] - 1].classList.add("won");
       squares[comb[1] - 1].classList.add("won");
       squares[comb[2] - 1].classList.add("won");
-      owins+=1;
-      owinsButton.innerHTML = owins;
       owinsButton.innerHTML = owins;
       alertMessage.innerHTML = "o won";
       alertMessage.classList.add("on");
+      setO();
       playing = false;
       return "o";
     }
@@ -204,10 +214,12 @@ modeButton.onclick = () => {
     mode = "engine";
     modeButton.innerHTML = "<i class='fa fa-computer'></i>";
     replayButton.click();
+    modeButton.className="mode-switch engine";
   } else if(mode == "engine") {
     mode = "multiplayer";
     modeButton.innerHTML = "<i class='fa fa-user'></i>";
     replayButton.click();
+    modeButton.className="mode-switch multiplayer";
   }
   setX("reset");
   setO("reset");
@@ -218,27 +230,33 @@ let setO = (method) => {
   if(method === "reset") {
     owins = 0;
     owinsButton.innerHTML = owins;
+    window.sessionStorage.setItem("oWins", owins);
   } else {
     owins+=1;
     owinsButton.innerHTML = owins;
+    window.sessionStorage.setItem("oWins", owins);
   }
 }
 let setX = (method) => {
   if(method === "reset") {
     xwins = 0;
     xwinsButton.innerHTML = xwins;
+    window.sessionStorage.setItem("xWins", xwins);
   } else {
     xwins+=1;
     xwinsButton.innerHTML = xwins;
+    window.sessionStorage.setItem("xWins", xwins);
   }
 }
-let setDraws = (method = "add") => {
+let setDraws = (method) => {
   if(method === "reset") {
     draws = 0;
     drawsButton.innerHTML = draws;
+    window.sessionStorage.setItem("draws", draws);
   } else {
     draws+=1;
     drawsButton.innerHTML = draws;
+    window.sessionStorage.setItem("draws", draws);
   }
 }
 

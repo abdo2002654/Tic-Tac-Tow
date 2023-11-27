@@ -149,20 +149,38 @@ body {
   top: -40px;
 }
 .mode-switch {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  height: 60px;
-  width: 60px;
-  font-size: 20px;
-  background: var(--bs-dark-blue);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #eee;
+  font-size: 28px !important;
+}
+.mode-switch.engine {
+  animation: .2s scale1 linear 1;
+}
+.mode-switch.multiplayer {
+  animation: .2s scale2 linear 1;
 }
 .won {
   filter: brightness(.5 );
   transform: scale(1.1);
+}
+
+@keyframes scale1 {
+  0% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.1  );
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scale2 {
+  0% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.1  );
+  }
+  100% {
+    transform: scale(1);
+  }
 }
