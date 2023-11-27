@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+}
+:root {
+  --bs-light: #f3f4f6;
+  --bs-dark: #374151;
+
+  --bs-light-red: #fecaca;
+  --bs-base-red: #ef4444;
+  --bs-dark-red: #991b1b;
+
+  --bs-light-blue: #bfdbfe;
+  --bs-base-blue: #3b82f6;
+  --bs-dark-blue: #1e40af;
+
+  --bs-light-yellow: #fde68a;
+  --bs-base-yellow: #fbbf24;
+  --bs-dark-yellow: #d97706;
+
+  --bs-light-green: #a7f3d0;
+  --bs-base-green: #10b981;
+  --bs-dark-green: #047857;
+}
+@font-face {
+  font-family: comfortaa;
+  src: url("../fonts/Comfortaa\ Regular\ 400.ttf");
+}
+@font-face {
+  font-family: cookie;
+  src: url("../fonts/Cookie-Regular.ttf");
+}
+@font-face {
+  font-family: roboto;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff11;
+  border-radius: 8px;
+}
+.app .topBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: .2px solid #333;
+}
+.app .topBar button {
+  background: var(--bs-dark-blue);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 15px;
+  width: 80px;
+  margin: 5px;
+  font-family: roboto;
+  color: #eee;
+}
+.app .board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: .2px solid #333;
+}
+.app .board .square {
+  height: 80px;
+  width: 80px;
+  background: #bfdbfe11;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+  cursor: pointer;
+  transition: .1s;
+}
+.app .board .square:hover {
+  transform: scale(1.05);
+}
+.x-icon { color: var(--bs-base-green); }
+.o-icon { color: var(--bs-base-yellow); }
+.app .bottomBar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.app .bottomBar div {
+  height: 40px;
+  width: 80px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 0 #333;
+  margin: 5px;
+  display: flex;
+  font-family: cookie;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+}
+.app .bottomBar .xwins {
+  background: var(--bs-dark-green);
+}
+.app .bottomBar .draws {
+  background: var(--bs-dark);
+}
+.app .bottomBar .owins {
+  background: var(--bs-dark-yellow);
+}
