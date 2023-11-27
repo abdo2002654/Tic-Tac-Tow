@@ -54,7 +54,7 @@ body {
   border-bottom: .2px solid #333;
 }
 .app .topBar button {
-  background: var(--bs-dark-blue);
+  background: var(--bs-dark);
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -64,8 +64,12 @@ body {
   padding: 10px 15px;
   width: 80px;
   margin: 5px;
+  cursor: pointer;
   font-family: roboto;
   color: #eee;
+}
+.app .topBar button:nth-child(2) {
+  font-size: 22px;
 }
 .app .board {
   display: grid;
@@ -90,7 +94,7 @@ body {
   transition: .1s;
 }
 .app .board .square:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 .x-icon { color: var(--bs-base-green); }
 .o-icon { color: var(--bs-base-yellow); }
