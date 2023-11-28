@@ -2,32 +2,13 @@
   margin: 0;
 }
 :root {
-  --bs-light: #f3f4f6;
   --bs-dark: #374151;
 
-  --bs-light-red: #fecaca;
-  --bs-base-red: #ef4444;
-  --bs-dark-red: #991b1b;
-
-  --bs-light-blue: #bfdbfe;
-  --bs-base-blue: #3b82f6;
-  --bs-dark-blue: #1e40af;
-
-  --bs-light-yellow: #fde68a;
   --bs-base-yellow: #fbbf24;
   --bs-dark-yellow: #d97706;
 
-  --bs-light-green: #a7f3d0;
   --bs-base-green: #10b981;
   --bs-dark-green: #047857;
-}
-@font-face {
-  font-family: comfortaa;
-  src: url("../fonts/Comfortaa\ Regular\ 400.ttf");
-}
-@font-face {
-  font-family: cookie;
-  src: url("../fonts/Cookie-Regular.ttf");
 }
 @font-face {
   font-family: roboto;
@@ -62,19 +43,18 @@ body {
   background: var(--bs-dark);
   border: none;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 26px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 10px 15px;
   width: 80px;
+  box-sizing: border-box;
+  height: 80px;
   margin: 5px;
   cursor: pointer;
   font-family: roboto;
   color: #eee;
-}
-.app .topBar button:nth-child(1) {
-  font-size: 22px;
 }
 .app .board {
   display: grid;
