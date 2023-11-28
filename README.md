@@ -1,2 +1,2 @@
 # Tic-Tac-Tow
-a one against one trial tic tac tow game with vanilla js
+one against one or vs computer tic tac toe game designed using html css and vanilla js
