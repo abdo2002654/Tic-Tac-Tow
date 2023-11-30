@@ -1,3 +1,4 @@
 # Tic-Tac-Tow
-## one against one or vs computer tic tac toe game designed using html css and vanilla js
+## tic tac toe vs pc or one to one
+created with vanilla js and html & css
 ### wanna try [Play Now](https://abdo2002654.github.io/Tic-Tac-Tow/)
